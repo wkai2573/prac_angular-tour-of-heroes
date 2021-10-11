@@ -1,5 +1,6 @@
 import { Hero } from './hero';
 
+//假資料
 export const HEROES: Hero[] = [
 	{ id: 11, name: 'Dr Nice' },
 	{ id: 12, name: 'Narco' },
