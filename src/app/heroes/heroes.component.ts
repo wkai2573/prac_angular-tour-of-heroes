@@ -26,4 +26,18 @@ export class HeroesComponent implements OnInit {
 	ngOnInit(): void {
 		this.getHeroes();
 	}
+
+	//方法__________
+	add(name: string): void {
+		name = name.trim();
+		if (!name) return;
+		this.heroService
+			.addHero({name} as Hero)
+			.subscribe(hero => this.heroes.push(hero));
+	}
+
+	delete(hero: Hero) {
+		this.heroes = this.heroes.filter(h => h !== hero); //資料移除英雄
+		this.heroService.deleteHero(hero.id).subscribe(); //請求移除英雄
+	}
 }
